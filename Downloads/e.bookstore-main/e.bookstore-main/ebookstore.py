@@ -66,15 +66,15 @@ def add_book():
 # Function to update book information in the database
 
 def update_book():
-    connection = sqlite3.connect("ebookstore.db")
-    cursor = connection.cursor()
+    conn = sqlite3.connect("ebookstore.db")
+    cursor = conn.cursor()
 
     id = int(input("Enter book ID to update: "))
     qty = int(input("Enter new quantity: "))
 
     cursor.execute("UPDATE book SET qty = ? WHERE id = ?", (qty, id))
-    connection.commit()
-    connection.close()
+    conn.commit()
+    conn.close()
     print("Book information updated successfully!")
 
 # Function to delete a book from the database
